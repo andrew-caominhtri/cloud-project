@@ -1,16 +1,18 @@
 import type { NextConfig } from "next";
 
+const backendHost =
+  process.env.NEXT_PUBLIC_API_URL || "microservices-project-5n0y.onrender.com";
+
 const nextConfig: NextConfig = {
- images: {
-  remotePatterns: [
-   {
-    protocol: "http",
-    hostname: "localhost",
-    port: "fetch(`${process.env.NEXT_PUBLIC_API_URL}",
-    pathname: "/uploads/**",
-   },
-  ],
- },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: backendHost,
+        pathname: "/uploads/**",
+      },
+    ],
+  },
 };
 
 export default nextConfig;
