@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { useRouter } from "next/navigation"
 import { apiUrl } from "@/lib/api-url"
+import { notifyAuthChanged } from "@/lib/auth-storage"
 
 export default function AdminLogin(){
 
@@ -30,6 +31,7 @@ export default function AdminLogin(){
   if(data.token){
 
    localStorage.setItem("adminToken",data.token)
+   notifyAuthChanged()
 
    router.push("/admin")
 

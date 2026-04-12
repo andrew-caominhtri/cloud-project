@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { useRouter } from "next/navigation"
 import { apiUrl } from "@/lib/api-url"
+import { notifyAuthChanged } from "@/lib/auth-storage"
 
 export default function Login(){
 
@@ -33,6 +34,7 @@ export default function Login(){
   if(data.token){
 
    localStorage.setItem("token",data.token)
+   notifyAuthChanged()
 
    alert("Login success")
 

@@ -47,6 +47,7 @@ exports.login = async (req, res) => {
   if (!valid)
     return res.status(400).json({ message: "Wrong password" });
 
+  /* Không set expiresIn → token không hết hạn; kết thúc phiên khi user xóa token (đăng xuất). */
   const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET);
 
   res.json({ token });

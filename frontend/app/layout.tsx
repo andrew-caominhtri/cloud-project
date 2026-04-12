@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { AccountMenu } from "@/components/AccountMenu"
 import "./globals.css"
 
 export default function RootLayout({
@@ -69,19 +70,7 @@ export default function RootLayout({
               <span className="store-cart-badge">0</span>
             </Link>
 
-            <div className="account-menu">
-              <div className="account-title">
-                <i className="fa-regular fa-user" /> Tài khoản
-              </div>
-              <div className="account-dropdown">
-                <Link href="/login">
-                  <i className="fa-solid fa-user" /> Khách hàng
-                </Link>
-                <Link href="/admin-login">
-                  <i className="fa-solid fa-user-tie" /> Admin
-                </Link>
-              </div>
-            </div>
+            <AccountMenu />
           </div>
         </header>
 
